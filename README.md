@@ -35,7 +35,7 @@
 
 ### Операции с пользователями, описание методов
 
-#### GET /users
+#### 1. GET /users
 Получить список всех пользователей
 
 ```
@@ -57,6 +57,7 @@ get:
 #### Ошибки метода
 
 ##### 200
+Пример
 
 ```
 {
@@ -78,6 +79,7 @@ get:
 ```
 
 ##### 401
+Пример
 
 ```
 {
@@ -87,6 +89,7 @@ get:
 ```
 
 ##### 500
+Пример
 
 ```
 {
@@ -95,7 +98,7 @@ get:
 }
 ```
 
-#### POST /users
+#### 2. POST /users
 Создать нового пользователя
 
 ```
@@ -114,6 +117,7 @@ get:
 #### Ошибки метода
 
 ##### 201
+Пример
 
 ```
 {
@@ -135,6 +139,17 @@ get:
 ```
 
 ##### 401
+Пример
+
+```
+{
+  "code": 0,
+  "message": "string"
+}
+```
+
+##### 409
+Пример
 
 ```
 {
@@ -152,11 +167,77 @@ get:
 }
 ```
 
+#### 3. GET/users/{id}
+Получить информацию о пользователе по ID
 
+```
+get:
+      summary: Получить информацию о пользователе по ID
+      operationId: usersIdGET
+      tags:
+        - users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Уникальный идентификатор пользователя
+          schema:
+            type: integer
 
+```
 
+#### Ошибки метода
 
+##### 201
+Пример
 
+```
+{
+    "id": 0,
+    "username": "string",
+    "email": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "address": {
+      "country": "string",
+      "city": "string",
+      "street": "string",
+      "house": "string"
+    },
+    "age": 0,
+    "isEmployee": true,
+    "accountStatus": "active"
+  }
+```
+
+##### 401
+Пример
+
+```
+{
+  "code": 0,
+  "message": "string"
+}
+```
+
+##### 404
+Пример
+
+```
+{
+  "code": 0,
+  "message": "string"
+}
+```
+
+##### 500
+
+```
+{
+  "code": 0,
+  "message": "string"
+}
+```
 
 [Содержание](https://github.com/VeronikaSukhareva/API-documentation-for-the-user-management-service/edit/main/README.md#%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5)
 
